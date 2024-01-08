@@ -12,9 +12,14 @@ env:
   IMAGE_NAME: 'pythoncoderas/<name>'
 
 jobs:
+  get-image-name:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ env.IMAGE_NAME }}
   build:
     runs-on: ubuntu-latest
-    if: ${{ env.IMAGE_NAME != 'pythoncoderas/<name>' }}
+    needs: [get-image-name]
+    if: ${{ needs.get-image-name.outputs.image != 'pythoncoderas/<name>' }}
     permissions:
       contents: read
       packages: write
