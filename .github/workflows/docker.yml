@@ -14,7 +14,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ env.IMAGE_NAME }} != 'pythoncoderas/<name>'
+    if: ${{ env.IMAGE_NAME != 'pythoncoderas/<name>' }}
     permissions:
       contents: read
       packages: write
