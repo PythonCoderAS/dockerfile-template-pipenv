@@ -14,6 +14,8 @@ env:
 jobs:
   get-image-name:
     runs-on: ubuntu-latest
+    steps:
+      - run: echo "null"
     outputs:
       image: ${{ env.IMAGE_NAME }}
   build:
